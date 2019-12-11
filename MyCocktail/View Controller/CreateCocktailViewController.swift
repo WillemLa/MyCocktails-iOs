@@ -21,19 +21,18 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var CocktailCategory: UIPickerView!
     @IBOutlet weak var CocktailName: UITextView!
     @IBOutlet weak var Stepper: UIStepper!
-    @IBOutlet weak var IngredientAmountLabel: UILabel!
     @IBAction func StepperValueChanged(_ sender: Any) {
-        let oldValue = Int(IngredientAmountLabel!.text!)!
-        
-        var stepperValue = 1
         if Stepper.value >= 1, Stepper.value <= 15 {
-            stepperValue = Int(Stepper.value)
-            IngredientAmountLabel.text! = String(stepperValue)
+            //IngredientAmountLabel.text! = String(stepperValue)
             IngredientsTableView.reloadData()
         }
         else {
-           stepperValue = oldValue
-           Stepper.value = Double(oldValue)
+            if Stepper.value > 15{
+                Stepper.value = 15
+            }
+            else {
+                Stepper.value = 1
+            }
         }
     }
     
