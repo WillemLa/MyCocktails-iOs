@@ -10,36 +10,35 @@ import UIKit
 
 class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
     
+    
+    let repository = Repository.sharedInstance()
+    let cocktailController = CocktailController.sharedInstance()
     var categories = Array<String>()
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        categories.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        categories[row]
-    }
-    
     @IBOutlet weak var IngredientsTableView: UITableView!
-    let cocktailController = CocktailController()
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard Stepper!.value != 0 else {
-            return 1
-        }
-            return Int(Stepper!.value)
-    }
         
     @IBOutlet weak var Instructions: UITextView!
     @IBOutlet weak var CocktailCategory: UIPickerView!
     @IBOutlet weak var CocktailName: UITextView!
+    @IBOutlet weak var Stepper: UIStepper!
+    @IBOutlet weak var IngredientAmountLabel: UILabel!
+    @IBAction func StepperValueChanged(_ sender: Any) {
+        let oldValue = Int(IngredientAmountLabel!.text!)!
+        
+        var stepperValue = 1
+        if Stepper.value >= 1, Stepper.value <= 15 {
+            stepperValue = Int(Stepper.value)
+            IngredientAmountLabel.text! = String(stepperValue)
+            IngredientsTableView.reloadData()
+        }
+        else {
+           stepperValue = oldValue
+           Stepper.value = Double(oldValue)
+        }
+    }
     
     @IBAction func SaveCocktail(_ sender: Any) {
-        var cocktailArray = Repository().loadFromFile()
+        var cocktailArray = repository.loadFromFile()
         let cocktail = Cocktail(name: CocktailName.text,
                                 instructions: Instructions.text,
                                 ing1: fetchIngredientName(forRow: 1),
@@ -76,8 +75,29 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
                                 )
         
             cocktailArray.append(cocktail)
-            Repository().saveToFile(cocktails: cocktailArray)
+            repository.saveToFile(cocktails: cocktailArray)
         }
+    
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+         1
+     }
+     
+     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+         categories.count
+     }
+     
+     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+         categories[row]
+     }
+     
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard Stepper!.value != 0 else {
+            return 1
+        }
+            return Int(Stepper!.value)
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CreateIngredientCell", for: indexPath) as! SingleIngredientTableViewCell
@@ -102,24 +122,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
         return (cell as! SingleIngredientTableViewCell).getAmount()
     }
     
-    @IBOutlet weak var Stepper: UIStepper!
     
-    @IBOutlet weak var IngredientAmountLabel: UILabel!
-    
-    @IBAction func StepperValueChanged(_ sender: Any) {
-        let oldValue = Int(IngredientAmountLabel!.text!)!
-        
-        var stepperValue = 1
-        if Stepper.value >= 1, Stepper.value <= 15 {
-            stepperValue = Int(Stepper.value)
-            IngredientAmountLabel.text! = String(stepperValue)
-            IngredientsTableView.reloadData()
-        }
-        else {
-           stepperValue = oldValue
-           Stepper.value = Double(oldValue)
-        }
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

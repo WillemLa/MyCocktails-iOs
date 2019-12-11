@@ -10,6 +10,12 @@ import Foundation
 
 class CocktailController {
     
+    private static let shared = CocktailController()
+    
+    static func sharedInstance() -> CocktailController{
+        return shared
+    }
+    
     let baseUrl = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/")!
     
     func fetchCocktails(queryZoekTerm: [String: String],extraUrl: String , completion: @escaping ([Cocktail]?) -> Void) {

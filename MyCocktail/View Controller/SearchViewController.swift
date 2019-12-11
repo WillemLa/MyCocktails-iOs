@@ -10,11 +10,13 @@ import UIKit
 
 class SearchViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
     
-    
+    let repository = Repository.sharedInstance()
+    let cocktailController = CocktailController.sharedInstance()
+
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-    
-    let cocktailController = CocktailController()
-    var cocktails = Array<Cocktail>()
+    @IBOutlet weak var SearchBtn: UIButton!
+    @IBOutlet weak var CocktailCollectionView: UICollectionView!
+    @IBOutlet weak var SearchBar: UITextField!
     
     var categories: [Category] = Array<Category>()
     
@@ -41,49 +43,43 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         categoryCollectionView.delegate = self
         categoryCollectionView.dataSource = self
     }
-    
-    @IBOutlet weak var SearchBtn: UIButton!
-    @IBOutlet weak var CocktailCollectionView: UICollectionView!
-    @IBOutlet weak var SearchBar: UITextField!
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        //herhalen
-        let queryKey: String
-        let queryValue: String
-        let extraUrl: String
-        var cocktailsFromDb = Array<Cocktail>()
-        
         if let destination = segue.destination as? CocktailTableViewController{
             if(sender is UICollectionViewCell){
                 let indexPath = self.categoryCollectionView.indexPath(for: sender as! UICollectionViewCell)
-                queryValue = self.categories[indexPath!.item].name
-                extraUrl = "filter.php"
-                queryKey = "c"
-                cocktailsFromDb = Repository().getCocktailsByCategory(category: queryValue)
+                getCocktails(key: "c", value: self.categories[indexPath!.item].name , extraUrl: "filter.php", destination: destination, getName: true)
             }
             else{
-                extraUrl = "search.php"
-                queryKey = "s"
-                queryValue = SearchBar.text ?? ""
-                cocktailsFromDb = Repository().getCocktailsByName(name: queryValue)
+                getCocktails(key: "s", value: SearchBar.text ?? "", extraUrl: "search.php", destination: destination, getName: true)
             }
-            
-            let query = [queryKey : queryValue]
-            
-            cocktailController.fetchCocktails(queryZoekTerm: query, extraUrl: extraUrl){ (fetchedItems) in
-                if let fetchedItems = fetchedItems {
-                    DispatchQueue.main.async {
-                        self.cocktails = fetchedItems + cocktailsFromDb
-                        destination.cocktails = self.cocktails
-                        destination.tableView.reloadData()
-                    }
-                }
-                else{
-                    self.cocktails = cocktailsFromDb
-                    destination.cocktails = self.cocktails
+        }
+    }
+    
+    
+    
+    func getCocktails(key: String, value: String, extraUrl: String, destination: CocktailTableViewController, getName: Bool){
+        cocktailController.fetchCocktails(queryZoekTerm: [key:value], extraUrl: extraUrl){ (fetchedItems) in
+            if let fetchedItems = fetchedItems {
+                DispatchQueue.main.async {
+                    destination.cocktails = fetchedItems + self.getCocktailsFromDb(keyword: value, getName: getName)
                     destination.tableView.reloadData()
                 }
             }
+            else{
+                destination.cocktails = elf.getCocktailsFromDb(keyword: value, getName: getName)
+                destination.tableView.reloadData()
+            }
+        }
+    }
+    
+    func getCocktailsFromDb(keyword: String, getName: Bool) -> Array<Cocktail>{
+        if getName {
+            return repository.getCocktailsByName(name: keyword)
+        }
+        else{
+            return repository.getCocktailsByCategory(category: keyword)
         }
     }
     

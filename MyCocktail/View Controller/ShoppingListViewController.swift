@@ -10,6 +10,7 @@ import UIKit
 
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let repository = Repository.sharedInstance()
     var shoppingItems = Array<ShoppingItem>()
     
     @IBOutlet weak var AddButton: UIButton!
@@ -55,11 +56,11 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func loadShoppingItems(){
-        shoppingItems = Repository().loadShoppingItemsFromFile()
+        shoppingItems = repository.loadShoppingItemsFromFile()
     }
     
     func saveShoppingItems(shoppingItemArray: Array<ShoppingItem>){
-        Repository().saveShoppingitemToFile(shoppingItems: shoppingItemArray)
+        repositor.saveShoppingitemToFile(shoppingItems: shoppingItemArray)
     }
 
     /*
