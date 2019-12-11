@@ -55,8 +55,6 @@ class CocktailController {
         let jsonDecoder = JSONDecoder()
         let url = baseUrl.appendingPathComponent("lookup.php/")
         let urlWithQuery = url.withQueries(["i": cocktailId])!
-        
-       // let url = baseUrl.appendingPathComponent("lookup.php/?i=\(cocktailId)")
         let task = URLSession.shared.dataTask(with: urlWithQuery) { (data, response, error) in
             if let data = data, let cocktailToAdd = try? jsonDecoder.decode(Cocktails.self, from: data) {
                 completion(cocktailToAdd.drinks)
@@ -73,7 +71,6 @@ class CocktailController {
         let jsonDecoder = JSONDecoder()
         let url = baseUrl.appendingPathComponent("list.php/")
         let urlWithQuery = url.withQueries(["c": "list"])!
-       // let url = baseUrl.appendingPathComponent("lookup.php/?i=\(cocktailId)")
         let task = URLSession.shared.dataTask(with: urlWithQuery) { (data, response, error) in
             if let data = data, let categories = try? jsonDecoder.decode(Categories.self, from: data) {
                 completion(categories.drinks)

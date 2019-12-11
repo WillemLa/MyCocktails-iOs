@@ -42,36 +42,6 @@ class CocktailTableViewController: UITableViewController {
         cell.update(with: cocktail)
         return cell
     }
-    /* anders dubbel?? 
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "naarCocktail", sender: self)
-    }*/
-    
-    @IBAction func unwindToCocktailTableView(segue: UIStoryboardSegue) {
-        /*
-        guard segue.identifier == "saveUnwind" else { return }
-        
-        let sourceViewController = segue.source as! CreateCocktailTableViewController
-        */
-        /*PREPARE
-         
-         if let destination = segue.destination as? ViewController
-              tableView.indexpathforselectedrow!.row
-         */
-        /*if let cocktail = sourceViewController.cocktail {
-            if let seletedIndexPath = tableView.indexPathForSelectedRow {
-                cocktails[seletedIndexPath.row] = cocktail
-                tableView.reloadRows(at: [seletedIndexPath], with: .none)
-            } else { */
-        /*
-                let newIndexPath = IndexPath(row: cocktails!.count, section: 0)
-        cocktails!.append(sourceViewController.cocktail!)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
- */
-            //}
-        }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? RecipeViewController{
