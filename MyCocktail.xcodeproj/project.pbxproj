@@ -19,6 +19,7 @@
 		E6CBD87B239FA39200DCCCAC /* ShoppingItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CBD87A239FA39200DCCCAC /* ShoppingItemTableViewCell.swift */; };
 		E6CBD87D239FF03F00DCCCAC /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CBD87C239FF03F00DCCCAC /* Category.swift */; };
 		E6CBD87F23A0E9CC00DCCCAC /* CocktailDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CBD87E23A0E9CC00DCCCAC /* CocktailDao.swift */; };
+		E6CBD88423A12CE600DCCCAC /* CocktailFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CBD88323A12CE600DCCCAC /* CocktailFormatter.swift */; };
 		E6CD831F236DBD12002E61E4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CD831E236DBD12002E61E4 /* AppDelegate.swift */; };
 		E6CD8321236DBD12002E61E4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CD8320236DBD12002E61E4 /* SceneDelegate.swift */; };
 		E6CD8323236DBD12002E61E4 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6CD8322236DBD12002E61E4 /* SearchViewController.swift */; };
@@ -43,6 +44,7 @@
 		E6CBD87A239FA39200DCCCAC /* ShoppingItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingItemTableViewCell.swift; sourceTree = "<group>"; };
 		E6CBD87C239FF03F00DCCCAC /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		E6CBD87E23A0E9CC00DCCCAC /* CocktailDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailDao.swift; sourceTree = "<group>"; };
+		E6CBD88323A12CE600DCCCAC /* CocktailFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailFormatter.swift; sourceTree = "<group>"; };
 		E6CD831B236DBD12002E61E4 /* MyCocktail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCocktail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6CD831E236DBD12002E61E4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6CD8320236DBD12002E61E4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,14 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
+		E6CBD88223A12CC100DCCCAC /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				E6CBD88323A12CE600DCCCAC /* CocktailFormatter.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		E6CD8312236DBD12002E61E4 = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +147,7 @@
 		E6CD831D236DBD12002E61E4 /* MyCocktail */ = {
 			isa = PBXGroup;
 			children = (
+				E6CBD88223A12CC100DCCCAC /* Others */,
 				E6CBD88123A129F300DCCCAC /* View Controller */,
 				E6CBD88023A129D800DCCCAC /* Views */,
 				E6CBD872239F8ED400DCCCAC /* Repository */,
@@ -231,6 +242,7 @@
 				E67A3A0C237032DB00D0C3A9 /* CocktailTableViewCell.swift in Sources */,
 				E6CBD87D239FF03F00DCCCAC /* Category.swift in Sources */,
 				E6CBD879239F9C8000DCCCAC /* ShoppingItem.swift in Sources */,
+				E6CBD88423A12CE600DCCCAC /* CocktailFormatter.swift in Sources */,
 				E6B1DE0123719330008F094A /* RecipeViewController.swift in Sources */,
 				E6CD833D236E03F6002E61E4 /* CocktailTableViewController.swift in Sources */,
 				E6E83919236F3A8900606B55 /* CategoryCollectionViewCell.swift in Sources */,

@@ -27,7 +27,6 @@ class CocktailTableViewController: UITableViewController {
     var cocktails: [Cocktail]?
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //if niet nodig, aangezien we maar 1 section hebben (standaard, optionele functie verwijderd), maar toch houden voor eventuele uitbreidingen!!
         if section == 0 && cocktails != nil{
             return cocktails!.count
         }
@@ -43,6 +42,8 @@ class CocktailTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? RecipeViewController{
             let indexPath = cocktailTableView.indexPathForSelectedRow!
@@ -50,11 +51,7 @@ class CocktailTableViewController: UITableViewController {
             destination.cocktail = selected
         }
     }
-    
-    
-
-    
-    }
+}
 
     
 
@@ -93,9 +90,3 @@ class CocktailTableViewController: UITableViewController {
         return true
     }
     */
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-
