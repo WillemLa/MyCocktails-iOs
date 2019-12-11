@@ -95,6 +95,29 @@
 			path = Repository;
 			sourceTree = "<group>";
 		};
+		E6CBD88023A129D800DCCCAC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E67A3A0B237032DA00D0C3A9 /* CocktailTableViewCell.swift */,
+				E6E83918236F3A8900606B55 /* CategoryCollectionViewCell.swift */,
+				E6116C24239D344A00E21DD9 /* SingleIngredientTableViewCell.swift */,
+				E6CBD87A239FA39200DCCCAC /* ShoppingItemTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E6CBD88123A129F300DCCCAC /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E6CD8322236DBD12002E61E4 /* SearchViewController.swift */,
+				E6CD833C236E03F6002E61E4 /* CocktailTableViewController.swift */,
+				E6B1DE0023719330008F094A /* RecipeViewController.swift */,
+				E631D8FD239E6148004EACBA /* CreateCocktailViewController.swift */,
+				E6CBD875239F9AE900DCCCAC /* ShoppingListViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		E6CD8312236DBD12002E61E4 = {
 			isa = PBXGroup;
 			children = (
@@ -114,24 +137,17 @@
 		E6CD831D236DBD12002E61E4 /* MyCocktail */ = {
 			isa = PBXGroup;
 			children = (
+				E6CBD88123A129F300DCCCAC /* View Controller */,
+				E6CBD88023A129D800DCCCAC /* Views */,
 				E6CBD872239F8ED400DCCCAC /* Repository */,
 				E63212B3237F094D00D37F7B /* Model */,
 				E63212B2237F094200D37F7B /* Network */,
 				E6CD831E236DBD12002E61E4 /* AppDelegate.swift */,
 				E6CD8320236DBD12002E61E4 /* SceneDelegate.swift */,
-				E6CD8322236DBD12002E61E4 /* SearchViewController.swift */,
 				E6CD8324236DBD12002E61E4 /* Main.storyboard */,
 				E6CD8327236DBD18002E61E4 /* Assets.xcassets */,
 				E6CD8329236DBD18002E61E4 /* LaunchScreen.storyboard */,
 				E6CD832C236DBD18002E61E4 /* Info.plist */,
-				E6CD833C236E03F6002E61E4 /* CocktailTableViewController.swift */,
-				E6E83918236F3A8900606B55 /* CategoryCollectionViewCell.swift */,
-				E67A3A0B237032DA00D0C3A9 /* CocktailTableViewCell.swift */,
-				E6B1DE0023719330008F094A /* RecipeViewController.swift */,
-				E6116C24239D344A00E21DD9 /* SingleIngredientTableViewCell.swift */,
-				E631D8FD239E6148004EACBA /* CreateCocktailViewController.swift */,
-				E6CBD875239F9AE900DCCCAC /* ShoppingListViewController.swift */,
-				E6CBD87A239FA39200DCCCAC /* ShoppingItemTableViewCell.swift */,
 			);
 			path = MyCocktail;
 			sourceTree = "<group>";
