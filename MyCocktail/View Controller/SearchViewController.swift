@@ -57,8 +57,6 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
     }
     
-    
-    
     func getCocktails(key: String, value: String, extraUrl: String, destination: CocktailTableViewController, getName: Bool){
         cocktailController.fetchCocktails(queryZoekTerm: [key:value], extraUrl: extraUrl){ (fetchedItems) in
             if let fetchedItems = fetchedItems {
@@ -68,7 +66,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
             else{
-                destination.cocktails = elf.getCocktailsFromDb(keyword: value, getName: getName)
+                destination.cocktails = self.getCocktailsFromDb(keyword: value, getName: getName)
                 destination.tableView.reloadData()
             }
         }

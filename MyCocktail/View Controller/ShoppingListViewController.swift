@@ -60,7 +60,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func saveShoppingItems(shoppingItemArray: Array<ShoppingItem>){
-        repositor.saveShoppingitemToFile(shoppingItems: shoppingItemArray)
+        repository.saveShoppingitemToFile(shoppingItems: shoppingItemArray)
     }
 
     /*

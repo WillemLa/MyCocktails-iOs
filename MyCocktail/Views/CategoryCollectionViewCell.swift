@@ -17,7 +17,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         restorationIdentifier = categorie.name
    
         TextLabel.text = categorie.name
-        /*
-        ImageView.backgroundColor = UIImage(named: "rowBackground")!*/
+        ImageView.image = UIImage(named: categorie.name.getImageNameFormatted()) ?? UIImage(named: "Extra")!
     }
 }
