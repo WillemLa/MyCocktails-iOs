@@ -507,26 +507,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WAO-LB-Ro0">
-                                <rect key="frame" x="0.0" y="20" width="414" height="793"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAO-LB-Ro0">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="yNq-DV-F4R">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dfv-xR-yEQ">
-                                                <rect key="frame" x="8" y="8.0000000000000036" width="398" height="49.333333333333343"/>
+                                                <rect key="frame" x="8" y="7.9999999999999982" width="398" height="29.333333333333329"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" restorationIdentifier="IngredientsSubtitle" text="Ingredients:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5l-0I-55D">
-                                                <rect key="frame" x="8" y="67.333333333333329" width="398" height="35"/>
+                                                <rect key="frame" x="8" y="47.333333333333336" width="398" height="21.000000000000007"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" scrollEnabled="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3y-1f-Iif">
-                                                <rect key="frame" x="8" y="112.33333333333331" width="398" height="150"/>
+                                                <rect key="frame" x="8" y="78.333333333333314" width="398" height="150"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="150" id="Yiq-4u-8HX"/>
@@ -536,13 +536,13 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="InstructionsSubtitle" text="Instructions:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TjB-aj-yDy">
-                                                <rect key="frame" x="8" y="272.33333333333331" width="398" height="35.333333333333314"/>
+                                                <rect key="frame" x="8" y="238.33333333333334" width="398" height="20.666666666666657"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="251" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWc-tl-Ki8">
-                                                <rect key="frame" x="8" y="317.66666666666674" width="398" height="410.33333333333326"/>
+                                                <rect key="frame" x="8" y="269" width="398" height="459"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -555,9 +555,18 @@
                                 <constraints>
                                     <constraint firstItem="yNq-DV-F4R" firstAttribute="top" secondItem="s24-Kf-pJi" secondAttribute="top" id="1LN-EE-ijv"/>
                                     <constraint firstItem="yNq-DV-F4R" firstAttribute="leading" secondItem="s24-Kf-pJi" secondAttribute="leading" id="1aK-5T-ude"/>
+                                    <constraint firstItem="yNq-DV-F4R" firstAttribute="centerY" secondItem="WAO-LB-Ro0" secondAttribute="centerY" id="3oE-RD-kkc"/>
                                     <constraint firstItem="yNq-DV-F4R" firstAttribute="bottom" secondItem="s24-Kf-pJi" secondAttribute="bottom" id="5qm-TJ-9ll"/>
+                                    <constraint firstItem="yNq-DV-F4R" firstAttribute="height" secondItem="WAO-LB-Ro0" secondAttribute="height" id="5vx-QT-poA"/>
                                     <constraint firstItem="s24-Kf-pJi" firstAttribute="bottom" secondItem="yNq-DV-F4R" secondAttribute="bottom" id="ItA-kq-d1e"/>
+                                    <constraint firstItem="yNq-DV-F4R" firstAttribute="top" secondItem="WAO-LB-Ro0" secondAttribute="top" id="Mrc-L4-e4k"/>
                                     <constraint firstItem="yNq-DV-F4R" firstAttribute="leading" secondItem="s24-Kf-pJi" secondAttribute="leading" id="QUH-Uo-rAz"/>
+                                    <constraint firstItem="yNq-DV-F4R" firstAttribute="leading" secondItem="WAO-LB-Ro0" secondAttribute="leading" id="RRH-ff-CEN"/>
+                                    <constraint firstItem="yNq-DV-F4R" firstAttribute="width" secondItem="WAO-LB-Ro0" secondAttribute="width" id="Sxa-8z-cCZ"/>
+                                    <constraint firstItem="yNq-DV-F4R" firstAttribute="width" secondItem="s24-Kf-pJi" secondAttribute="width" id="XKN-4E-eU8"/>
+                                    <constraint firstItem="yNq-DV-F4R" firstAttribute="height" secondItem="s24-Kf-pJi" secondAttribute="height" id="ZKj-NM-GKj"/>
+                                    <constraint firstItem="yNq-DV-F4R" firstAttribute="centerX" secondItem="WAO-LB-Ro0" secondAttribute="centerX" id="dSF-yk-QWl"/>
+                                    <constraint firstAttribute="bottom" secondItem="yNq-DV-F4R" secondAttribute="bottom" constant="-20" id="hKI-tD-WN0"/>
                                     <constraint firstItem="yNq-DV-F4R" firstAttribute="top" secondItem="Gf7-pT-PGY" secondAttribute="top" id="hOq-MO-Tdg"/>
                                     <constraint firstItem="s24-Kf-pJi" firstAttribute="trailing" secondItem="yNq-DV-F4R" secondAttribute="trailing" id="ix0-HJ-YKn"/>
                                     <constraint firstAttribute="trailing" secondItem="yNq-DV-F4R" secondAttribute="trailing" id="laE-lN-3yV"/>
@@ -572,6 +581,7 @@
                             <constraint firstItem="WAO-LB-Ro0" firstAttribute="bottom" secondItem="rnV-yu-hHw" secondAttribute="bottom" id="QXQ-uz-P8O"/>
                             <constraint firstItem="WAO-LB-Ro0" firstAttribute="top" secondItem="rnV-yu-hHw" secondAttribute="top" id="RfS-h5-8R3"/>
                             <constraint firstItem="WAO-LB-Ro0" firstAttribute="leading" secondItem="rnV-yu-hHw" secondAttribute="leading" id="wEt-t0-Gsa"/>
+                            <constraint firstItem="rnV-yu-hHw" firstAttribute="trailing" secondItem="WAO-LB-Ro0" secondAttribute="trailing" id="wuS-l2-Lv8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rnV-yu-hHw"/>
                     </view>
@@ -584,7 +594,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUT-7O-cFL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3518.3035714285711" y="-46.376811594202906"/>
+            <point key="canvasLocation" x="3517.3913043478265" y="-46.467391304347828"/>
         </scene>
     </scenes>
     <resources>
