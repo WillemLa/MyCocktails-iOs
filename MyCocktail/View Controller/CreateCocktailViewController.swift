@@ -37,6 +37,9 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     @IBAction func SaveCocktail(_ sender: Any) {
+        guard checkInput() else {
+            return
+        }
         var cocktailArray = repository.loadFromFile()
         let cocktail = Cocktail(name: CocktailName.text,
                                 instructions: Instructions.text,
@@ -121,7 +124,17 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
         return (cell as! SingleIngredientTableViewCell).getAmount()
     }
     
-    
+    func checkInput() -> Bool{
+        if CocktailName.text.isEmpty || Instructions.text.isEmpty || fetchIngredientName(forRow: 1).isEmpty || fetchIngredientAmount(forRow: 1).isEmpty {
+                let alert = UIAlertController(title: "Error!", message: "Please fill all required fields", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                self.present(alert, animated: true)
+                return false
+        }
+        else{
+            return true
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

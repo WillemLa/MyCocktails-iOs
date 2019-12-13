@@ -18,6 +18,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var ShoppingItemsTableView: UITableView!
     
     @IBAction func AddShoppingItem(_ sender: Any) {
+        guard checkInput() else {
+            return
+        }
         shoppingItems.append(ShoppingItem(title: ShopItemNameTextField.text ?? ""))
         saveShoppingItems(shoppingItemArray: shoppingItems)
         loadShoppingItems()
@@ -54,6 +57,18 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         ShoppingItemsTableView.dataSource = self
         loadShoppingItems()
     }
+    
+    func checkInput() -> Bool{
+        if ShopItemNameTextField.text!.isEmpty {
+                  let alert = UIAlertController(title: "Error!", message: "Please fill the required field", preferredStyle: .alert)
+                  alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
+                  self.present(alert, animated: true)
+                  return false
+          }
+          else{
+              return true
+          }
+      }
     
     func loadShoppingItems(){
         shoppingItems = repository.loadShoppingItemsFromFile()
