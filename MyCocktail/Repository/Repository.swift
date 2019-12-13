@@ -22,21 +22,6 @@ struct Repository{
     
     let categoryArchiveUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories").appendingPathExtension("plist")
     
-    func loadCategoriesFromFile() -> Array<Category>{
-             let propertyListDecoder = PropertyListDecoder()
-                    if let retrievedCategories = try? Data(contentsOf: categoryArchiveUrl),
-                        var decodedCategories = try? propertyListDecoder.decode(Array<Category>.self, from: retrievedCategories){
-                     return decodedCategories
-             }
-             return Array<Category>()
-       }
-    
-    func saveCategoryToFile(categories: Array<Category>){
-        let properyListEncoder = PropertyListEncoder()
-                       let encodedCategories = try? properyListEncoder.encode(categories)
-                              try? encodedCategories?.write(to: categoryArchiveUrl, options: .noFileProtection)
-    }
-    
     func loadShoppingItemsFromFile() -> Array<ShoppingItem>{
              let propertyListDecoder = PropertyListDecoder()
                     if let retrievedShoppingItems = try? Data(contentsOf: shoppingItemArchiveUrl),

@@ -61,12 +61,10 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
             if let fetchedItems = fetchedItems {
                 DispatchQueue.main.async {
                     destination.cocktails = fetchedItems + self.getCocktailsFromDb(keyword: value, getName: getName)
-                    self.repository.saveToFile(cocktails: fetchedItems)
                     destination.tableView.reloadData()
                 }
             }
             else{
-
                 destination.cocktails = self.getCocktailsFromDb(keyword: value, getName: getName)
                 destination.tableView.reloadData()
             }
@@ -89,11 +87,9 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                 DispatchQueue.main.async {
                     self.categories = fetchedItems
                     self.categoryCollectionView.reloadData()
-                    self.repository.saveCategoryToFile(categories: fetchedItems)
                 }
             }
             else{
-                    self.categories = self.repository.loadCategoriesFromFile()
                     self.offlineAlert()
                 
             }

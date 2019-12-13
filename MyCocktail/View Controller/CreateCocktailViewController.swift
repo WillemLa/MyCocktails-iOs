@@ -22,18 +22,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var CocktailName: UITextView!
     @IBOutlet weak var Stepper: UIStepper!
     @IBAction func StepperValueChanged(_ sender: Any) {
-        if Stepper.value >= 1, Stepper.value <= 15 {
-            //IngredientAmountLabel.text! = String(stepperValue)
             IngredientsTableView.reloadData()
-        }
-        else {
-            if Stepper.value > 15{
-                Stepper.value = 15
-            }
-            else {
-                resetStepper()
-            }
-        }
     }
     
     @IBAction func SaveCocktail(_ sender: Any) {
@@ -95,9 +84,6 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
      
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard Stepper!.value != 0 else {
-            return 1
-        }
             return Int(Stepper!.value)
     }
     
@@ -142,7 +128,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetStepper()
+        Stepper.value = 1
         getCategories()
         IngredientsTableView.delegate = self
         IngredientsTableView.dataSource = self
@@ -161,11 +147,6 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
             }
         }
     }
-    
-    func resetStepper(){
-        self.Stepper.value = 1
-    }
-
     /*
     // MARK: - Navigation
 
