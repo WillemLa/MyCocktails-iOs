@@ -31,7 +31,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
                 Stepper.value = 15
             }
             else {
-                Stepper.value = 1
+                resetStepper()
             }
         }
     }
@@ -126,10 +126,14 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     
     func checkInput() -> Bool{
         if CocktailName.text.isEmpty || Instructions.text.isEmpty || fetchIngredientName(forRow: 1).isEmpty || fetchIngredientAmount(forRow: 1).isEmpty {
+                DispatchQueue.main.async {
+
                 let alert = UIAlertController(title: "Error!", message: "Please fill all required fields", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                 self.present(alert, animated: true)
-                return false
+            }
+            return false
+
         }
         else{
             return true
@@ -138,7 +142,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Stepper.value = 1
+        resetStepper()
         getCategories()
         IngredientsTableView.delegate = self
         IngredientsTableView.dataSource = self
@@ -156,6 +160,10 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
                 }
             }
         }
+    }
+    
+    func resetStepper(){
+        self.Stepper.value = 1
     }
 
     /*

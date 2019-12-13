@@ -17,6 +17,10 @@ class RecipeViewController: UIViewController {
     @IBOutlet weak var Ingredients: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUi()
+    }
+    
+    func updateUi(){
         Titel.text = cocktail?.name
         Instructions.text = cocktail?.instructions
         Ingredients.text = cocktail?.getFormattedRecipe()

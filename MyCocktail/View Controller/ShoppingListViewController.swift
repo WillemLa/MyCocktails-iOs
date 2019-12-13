@@ -60,9 +60,12 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     
     func checkInput() -> Bool{
         if ShopItemNameTextField.text!.isEmpty {
+            DispatchQueue.main.async {
+
                   let alert = UIAlertController(title: "Error!", message: "Please fill the required field", preferredStyle: .alert)
                   alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
                   self.present(alert, animated: true)
+            }
                   return false
           }
           else{
