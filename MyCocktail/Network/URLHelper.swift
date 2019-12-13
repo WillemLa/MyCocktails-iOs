@@ -9,8 +9,6 @@
 import Foundation
 
 extension URL {
-    //Zie voorbeeld boek (pg. 853) met 2 queries: dit url
-    //https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2011-11-11
     
     func withQueries(_ queries: [String: String]) -> URL? {
         var components = URLComponents(url: self, resolvingAgainstBaseURL: true)

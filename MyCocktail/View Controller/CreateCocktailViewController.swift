@@ -69,7 +69,30 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
             repository.saveToFile(cocktails: cocktailArray)
         }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        Stepper.value = 1
+        getCategories()
+        IngredientsTableView.delegate = self
+        IngredientsTableView.dataSource = self
+        CocktailCategory.dataSource = self
+        CocktailCategory.delegate = self
+    }
     
+    func getCategories(){
+        cocktailController.fetchCategories(){
+            (fetchedItems) in
+            if let fetchedItems = fetchedItems{
+                DispatchQueue.main.async {
+                    self.categories = fetchedItems.map{ $0.name }
+                    self.CocktailCategory.reloadAllComponents()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Spinner
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
          1
      }
@@ -82,7 +105,8 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
          categories[row]
      }
      
-    
+    // MARK: - TableView
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return Int(Stepper!.value)
     }
@@ -110,6 +134,8 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
         return (cell as! SingleIngredientTableViewCell).getAmount()
     }
     
+    // MARK: - Validation
+
     func checkInput() -> Bool{
         if CocktailName.text.isEmpty || Instructions.text.isEmpty || fetchIngredientName(forRow: 1).isEmpty || fetchIngredientAmount(forRow: 1).isEmpty {
                 DispatchQueue.main.async {
@@ -126,27 +152,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
         }
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        Stepper.value = 1
-        getCategories()
-        IngredientsTableView.delegate = self
-        IngredientsTableView.dataSource = self
-        CocktailCategory.dataSource = self
-        CocktailCategory.delegate = self
-    }
-    
-    func getCategories(){
-        cocktailController.fetchCategories(){
-            (fetchedItems) in
-            if let fetchedItems = fetchedItems{
-                DispatchQueue.main.async {
-                    self.categories = fetchedItems.map{ $0.name }
-                    self.CocktailCategory.reloadAllComponents()
-                }
-            }
-        }
-    }
+
     /*
     // MARK: - Navigation
 

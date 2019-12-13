@@ -27,6 +27,17 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         ShoppingItemsTableView.reloadData()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        //navigationItem.rightBarButtonItem = self.editButtonItem
+        ShoppingItemsTableView.delegate = self
+        ShoppingItemsTableView.dataSource = self
+        loadShoppingItems()
+    }
+    
+    
+    // MARK: - TableView
+
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
@@ -50,14 +61,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //navigationItem.rightBarButtonItem = self.editButtonItem
-        ShoppingItemsTableView.delegate = self
-        ShoppingItemsTableView.dataSource = self
-        loadShoppingItems()
-    }
-    
+    // MARK: - Validation
+
     func checkInput() -> Bool{
         if ShopItemNameTextField.text!.isEmpty {
             DispatchQueue.main.async {
@@ -71,6 +76,8 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
               return true
           }
       }
+    
+    // MARK: - Repository Calls
     
     func loadShoppingItems(){
         shoppingItems = repository.loadShoppingItemsFromFile()

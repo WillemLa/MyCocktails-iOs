@@ -26,6 +26,8 @@ class CocktailTableViewController: UITableViewController {
 
     var cocktails: [Cocktail]?
 
+    // MARK: - TableView
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 && cocktails != nil{
             return cocktails!.count
