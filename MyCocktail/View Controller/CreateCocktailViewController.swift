@@ -67,6 +67,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
         
             cocktailArray.append(cocktail)
             repository.saveToFile(cocktails: cocktailArray)
+            resetUI()
         }
     
     override func viewDidLoad() {
@@ -145,11 +146,22 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
                 self.present(alert, animated: true)
             }
             return false
-
         }
         else{
             return true
         }
+    }
+    
+    func resetUI(){
+        Instructions.text = ""
+        CocktailName.text = ""
+        for row in 1...Int(Stepper!.value) {
+            let cell = IngredientsTableView.viewWithTag(row)
+            (cell as! SingleIngredientTableViewCell).resetCell()
+        }
+        Stepper.value = 1
+        IngredientsTableView.reloadData()
+
     }
 
 

@@ -32,8 +32,10 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                 }
             }
             else{
+                DispatchQueue.main.async {
                 destination.cocktails = self.getCocktailsFromDb(keyword: value, getName: getName)
                 destination.tableView.reloadData()
+            }
             }
         }
     }

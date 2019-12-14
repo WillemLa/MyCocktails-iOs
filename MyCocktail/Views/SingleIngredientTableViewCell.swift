@@ -31,4 +31,9 @@ class SingleIngredientTableViewCell: UITableViewCell {
         }
         return ingredientAmount.text!
     }
+    
+    func resetCell(){
+        ingredientName.text = ""
+        ingredientAmount.text = ""
+    }
 }
