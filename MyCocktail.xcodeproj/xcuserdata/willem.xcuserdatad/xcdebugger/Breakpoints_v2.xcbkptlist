@@ -702,7 +702,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9E8CF689-7BC8-4C58-9A67-01261E07D365"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyCocktail/View Controller/CreateCocktailViewController.swift"
@@ -711,6 +711,102 @@
             startingLineNumber = "87"
             endingLineNumber = "87"
             landmarkName = "getCategories()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9E8CF689-7BC8-4C58-9A67-01261E07D365 - 6f8bf8a30d8b3473"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;MyCocktail.Category&gt;&gt;) -&gt; () in MyCocktail.CreateCocktailViewController.getCategories() -&gt; ()"
+                  moduleName = "MyCocktail"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willem/Desktop/MyCocktails/MyCocktail/View%20Controller/CreateCocktailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "87"
+                  endingLineNumber = "87"
+                  offsetFromSymbolStart = "257">
+               </Location>
+               <Location
+                  uuid = "9E8CF689-7BC8-4C58-9A67-01261E07D365 - a0bdc698cf823a96"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Swift.Array&lt;MyCocktail.Category&gt;&gt;) -&gt; () in MyCocktail.CreateCocktailViewController.getCategories() -&gt; ()"
+                  moduleName = "MyCocktail"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/willem/Desktop/MyCocktails/MyCocktail/View%20Controller/CreateCocktailViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "88"
+                  endingLineNumber = "88"
+                  offsetFromSymbolStart = "43">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A080BEEF-31BB-4EAC-A9FD-AACA90407243"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyCocktail/View Controller/CreateCocktailViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "SaveCocktail(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F035000A-D82E-456A-ADC1-DEF449004B50"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyCocktail/View Controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getCocktailsFromDb(keyword:getName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "21882AE0-BBAD-4793-9F37-9F7EA0972F4E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyCocktail/Repository/Repository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "getCocktailsByCategory(category:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C717DE78-DBC7-43F9-98E6-B0DCCA306102"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyCocktail/View Controller/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getCocktailsFromDb(keyword:getName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

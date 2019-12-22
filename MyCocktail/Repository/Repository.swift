@@ -71,5 +71,4 @@ struct Repository{
          }
          return cocktailArray
      }
-    
 }

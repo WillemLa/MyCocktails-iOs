@@ -131,7 +131,6 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
         guard cell != nil else {
             return ""
         }
-        print((cell as! SingleIngredientTableViewCell).getAmount())
         return (cell as! SingleIngredientTableViewCell).getAmount()
     }
     

@@ -97,7 +97,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         if let destination = segue.destination as? CocktailTableViewController{
             if(sender is UICollectionViewCell){
                 let indexPath = self.categoryCollectionView.indexPath(for: sender as! UICollectionViewCell)
-                getCocktails(key: "c", value: self.categories[indexPath!.item].name , extraUrl: "filter.php", destination: destination, getName: true)
+                getCocktails(key: "c", value: self.categories[indexPath!.item].name , extraUrl: "filter.php", destination: destination, getName: false)
             }
             else{
                 getCocktails(key: "s", value: SearchBar.text ?? "", extraUrl: "search.php", destination: destination, getName: true)
