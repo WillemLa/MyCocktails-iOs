@@ -12,11 +12,11 @@ class ShoppingItemTableViewCell: UITableViewCell {
 
     @IBOutlet weak var ShoppingItemDate: UILabel!
     @IBOutlet weak var ShoppingItemName: UILabel!
-    
-    func update(shoppingItem: ShoppingItem){
+
+    func update(shoppingItem: ShoppingItem) {
         let dateFormatter = DateFormatter()
         dateFormatter.setLocalizedDateFormatFromTemplate("dd-MM-yyyy, HH:mm")
-        
+
         ShoppingItemName.text = shoppingItem.title
         ShoppingItemDate.text = dateFormatter.string(from: shoppingItem.timestamp)
     }

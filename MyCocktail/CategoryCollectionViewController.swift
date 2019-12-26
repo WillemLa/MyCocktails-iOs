@@ -13,7 +13,7 @@ private let reuseIdentifier = "Cell"
 class CategoryCollectionViewController: UICollectionViewController {
 
     @IBOutlet weak var CategoryCollectionView: UICollectionView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -38,7 +38,6 @@ class CategoryCollectionViewController: UICollectionViewController {
 
     // MARK: UIDataSource
 
-
 /*
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
@@ -50,8 +49,6 @@ class CategoryCollectionViewController: UICollectionViewController {
 
     }
     */
-    
-    
 
     // MARK: UICollectionViewDelegate
 

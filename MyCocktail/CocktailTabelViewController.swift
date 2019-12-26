@@ -12,8 +12,7 @@ class CocktailTabelViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
     }
-    
-    
+
 }

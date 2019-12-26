@@ -8,63 +8,63 @@
 
 import Foundation
 
-struct Repository{
-    
+struct Repository {
+
     private static let shared = Repository()
-    
-    static func sharedInstance() -> Repository{
+
+    static func sharedInstance() -> Repository {
         return shared
     }
-        
+
     let cocktailArchiveUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("cocktails").appendingPathExtension("plist")
 
     let shoppingItemArchiveUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("shoppingItem").appendingPathExtension("plist")
-    
+
     let categoryArchiveUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories").appendingPathExtension("plist")
-    
-    func loadShoppingItemsFromFile() -> Array<ShoppingItem>{
+
+    func loadShoppingItemsFromFile() -> [ShoppingItem] {
              let propertyListDecoder = PropertyListDecoder()
                     if let retrievedShoppingItems = try? Data(contentsOf: shoppingItemArchiveUrl),
-                        var decodedShoppingItems = try? propertyListDecoder.decode(Array<ShoppingItem>.self, from: retrievedShoppingItems){
+                        let decodedShoppingItems = try? propertyListDecoder.decode(Array<ShoppingItem>.self, from: retrievedShoppingItems) {
                      return decodedShoppingItems
              }
-             return Array<ShoppingItem>()
+             return [ShoppingItem]()
        }
-    
-    func saveShoppingitemToFile(shoppingItems: Array<ShoppingItem>){
+
+    func saveShoppingitemToFile(shoppingItems: [ShoppingItem]) {
         let properyListEncoder = PropertyListEncoder()
                        let encodedShoppingItems = try? properyListEncoder.encode(shoppingItems)
                               try? encodedShoppingItems?.write(to: shoppingItemArchiveUrl, options: .noFileProtection)
     }
-    
-    func loadFromFile() -> Array<Cocktail>{
+
+    func loadFromFile() -> [Cocktail] {
           let propertyListDecoder = PropertyListDecoder()
                  if let retrievedCocktail = try? Data(contentsOf: cocktailArchiveUrl),
-                     var decodedCocktails = try? propertyListDecoder.decode(Array<Cocktail>.self, from: retrievedCocktail){
+                    let decodedCocktails = try? propertyListDecoder.decode(Array<Cocktail>.self, from: retrievedCocktail) {
                   return decodedCocktails
           }
-          return Array<Cocktail>()
+          return [Cocktail]()
     }
-    
-    func saveToFile(cocktails: Array<Cocktail>){
+
+    func saveToFile(cocktails: [Cocktail]) {
         let properyListEncoder = PropertyListEncoder()
                        let encodedCocktail = try? properyListEncoder.encode(cocktails)
                               try? encodedCocktail?.write(to: cocktailArchiveUrl, options: .noFileProtection)
     }
-    
-    func getCocktailsByName(name: String) -> Array<Cocktail>{
-        var cocktailArray = Array<Cocktail>()
-        loadFromFile().forEach{cocktail in
+
+    func getCocktailsByName(name: String) -> [Cocktail] {
+        var cocktailArray = [Cocktail]()
+        loadFromFile().forEach {cocktail in
             if cocktail.name?.lowercased() == name.lowercased() {
                 cocktailArray.append(cocktail)
             }
         }
         return cocktailArray
     }
-    
-    func getCocktailsByCategory(category: String) -> Array<Cocktail>{
-         var cocktailArray = Array<Cocktail>()
-         loadFromFile().forEach{cocktail in
+
+    func getCocktailsByCategory(category: String) -> [Cocktail] {
+         var cocktailArray = [Cocktail]()
+         loadFromFile().forEach {cocktail in
             if cocktail.category?.lowercased() == category.lowercased() {
                  cocktailArray.append(cocktail)
              }

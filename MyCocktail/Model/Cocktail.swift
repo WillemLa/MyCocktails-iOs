@@ -8,12 +8,12 @@
 
 import Foundation
 //Codable: encode, decodabe, serilialize
-struct Cocktail : Codable {
-    
+struct Cocktail: Codable {
+
     let cocktailId: String
     let name: String?
-        
-    let measure1 : String?
+
+    let measure1: String?
     let measure2: String?
     let measure3: String?
     let measure4: String?
@@ -44,17 +44,17 @@ struct Cocktail : Codable {
     let ingredient13: String?
     let ingredient14: String?
     let ingredient15: String?
-    
-    let  instructions : String?
+
+    let  instructions: String?
     let category: String?
- 
-    enum CodingKeys: String, CodingKey{
-        
+
+    enum CodingKeys: String, CodingKey {
+
         case cocktailId = "idDrink"
 
         case name = "strDrink"
         case category = "strCategory"
-        
+
         case measure1 = "strMeasure1"
         case measure2 = "strMeasure2"
         case measure3 = "strMeasure3"
@@ -87,16 +87,15 @@ struct Cocktail : Codable {
         case ingredient14 = "strIngredient14"
         case ingredient15 = "strIngredient15"
         case instructions = "strInstructions"
-        
+
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
-                
+
         self.cocktailId = try values.decode(String.self, forKey: CodingKeys.cocktailId)
         self.name = try values.decode(String.self, forKey: CodingKeys.name)
-        
-        
+
         self.ingredient1 = try values.decode(String?.self, forKey: CodingKeys.ingredient1)
         self.ingredient2 = try values.decode(String?.self, forKey: CodingKeys.ingredient2)
         self.ingredient3 = try values.decode(String?.self, forKey: CodingKeys.ingredient3)
@@ -128,19 +127,19 @@ struct Cocktail : Codable {
         self.measure13 = try values.decode(String?.self, forKey: CodingKeys.measure13)
         self.measure14 = try values.decode(String?.self, forKey: CodingKeys.measure14)
         self.measure15 = try values.decode(String?.self, forKey: CodingKeys.measure15)
- 
+
         self.instructions = try values.decode(String?.self, forKey: CodingKeys.instructions)
         self.category = try values.decode(String?.self, forKey: CodingKeys.category)
 
     }
-    
-    init( name: String?,  instructions: String?,  ing1: String?,  ing2: String?,  ing3: String?,  ing4: String?,  ing5: String?,  ing6: String?,  ing7: String?,  ing8: String?,  ing9: String?,  ing10: String?, ing11: String?,  ing12: String?, ing13 : String?, ing14 : String?, ing15 : String?,  ingAmount1: String?,  ingAmount2: String?, ingAmount3: String?, ingAmount4: String?, ingAmount5: String?, ingAmount6: String?, ingAmount7: String?, ingAmount8: String?, ingAmount9: String?, ingAmount10: String?, ingAmount11: String?, ingAmount12: String?, ingAmount13: String?,ingAmount14 : String?,ingAmount15: String?, category: String?){
-        
+
+    init( name: String?, instructions: String?, ing1: String?, ing2: String?, ing3: String?, ing4: String?, ing5: String?, ing6: String?, ing7: String?, ing8: String?, ing9: String?, ing10: String?, ing11: String?, ing12: String?, ing13: String?, ing14: String?, ing15: String?, ingAmount1: String?, ingAmount2: String?, ingAmount3: String?, ingAmount4: String?, ingAmount5: String?, ingAmount6: String?, ingAmount7: String?, ingAmount8: String?, ingAmount9: String?, ingAmount10: String?, ingAmount11: String?, ingAmount12: String?, ingAmount13: String?, ingAmount14: String?, ingAmount15: String?, category: String?) {
+
         self.name = name
         self.instructions = instructions
         self.category = category
-        
-        self.ingredient1 = ing1 
+
+        self.ingredient1 = ing1
         self.ingredient2 = ing2
         self.ingredient3 = ing3
         self.ingredient4 = ing4
@@ -171,7 +170,7 @@ struct Cocktail : Codable {
         self.measure13 = ingAmount13
         self.measure14 = ingAmount14
         self.measure15 = ingAmount15
-        
+
         self.cocktailId = "PersonalCocktail"
     }
 
@@ -185,10 +184,10 @@ struct CocktailsByCat: Codable {
     let drinks: [CocktailByCat]
 }
 
-struct CocktailByCat: Codable{
+struct CocktailByCat: Codable {
         var cocktailId: String
-        
-        enum CodingKeys: String, CodingKey{
+
+        enum CodingKeys: String, CodingKey {
             case cocktailId = "idDrink"
         }
 
@@ -197,4 +196,3 @@ struct CocktailByCat: Codable{
             self.cocktailId = try values.decode(String.self, forKey: CodingKeys.cocktailId)
         }
 }
-

@@ -9,20 +9,17 @@
 import UIKit
 
 class IngredientTableViewCell: UITableViewCell, UITableViewDataSource, UITableViewDelegate {
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return Int(Stepper.value)
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SingleIngredientCell", for: indexPath) as! SingleIngredientTableViewCell
         cell.update(with: Int(Stepper.value))
         return cell
     }
 
-    
-
-        
 /*
     
         @IBAction func OnStepperAction(_ sender: UIStepper) {
@@ -42,7 +39,7 @@ class IngredientTableViewCell: UITableViewCell, UITableViewDataSource, UITableVi
             }
             
             */
-            
+
             /*
             
             //alles hidden en height verminderen * oude value
@@ -60,7 +57,7 @@ class IngredientTableViewCell: UITableViewCell, UITableViewDataSource, UITableVi
             }
              */
         }
-        
+
     /*
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {

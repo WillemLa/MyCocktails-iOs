@@ -11,7 +11,7 @@ import UIKit
 class CocktailTableViewController: UITableViewController {
 
     @IBOutlet var cocktailTableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,35 +27,32 @@ class CocktailTableViewController: UITableViewController {
     var cocktails: [Cocktail]?
 
     // MARK: - TableView
-    
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 && cocktails != nil{
+        if section == 0 && cocktails != nil {
             return cocktails!.count
-        }
-        else{
+        } else {
             return 0
         }
     }
-    
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CocktailCell", for: indexPath) as! CocktailTableViewCell
         let cocktail = cocktails![indexPath.row]
         cell.update(with: cocktail)
         return cell
     }
-    
+
     // MARK: - Navigation
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? RecipeViewController{
+        if let destination = segue.destination as? RecipeViewController {
             let indexPath = cocktailTableView.indexPathForSelectedRow!
             let selected = cocktails![indexPath.row]
             destination.cocktail = selected
         }
     }
 }
-
-    
 
     /*
     // Override to support conditional editing of the table view.
@@ -76,7 +73,6 @@ class CocktailTableViewController: UITableViewController {
         }    
     }
     */
-    
 
     /*
     // Override to support rearranging the table view.

@@ -8,10 +8,10 @@
 
 import Foundation
 
-struct ShoppingItem : Codable{
+struct ShoppingItem: Codable {
     let title: String
     let timestamp: Date
-    
+
     init(title: String) {
         self.title = title
         self.timestamp = Date()

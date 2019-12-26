@@ -9,14 +9,13 @@
 import UIKit
 
 class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDataSource, UIPickerViewDelegate {
-    
-    
+
     let repository = Repository.sharedInstance()
     let cocktailController = CocktailController.sharedInstance()
-    var categories = Array<String>()
-    
+    var categories = [String]()
+
     @IBOutlet weak var IngredientsTableView: UITableView!
-        
+
     @IBOutlet weak var Instructions: UITextView!
     @IBOutlet weak var CocktailCategory: UIPickerView!
     @IBOutlet weak var CocktailName: UITextView!
@@ -24,7 +23,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func StepperValueChanged(_ sender: Any) {
             IngredientsTableView.reloadData()
     }
-    
+
     @IBAction func SaveCocktail(_ sender: Any) {
         guard checkInput() else {
             return
@@ -64,12 +63,12 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
                                 ingAmount15: fetchIngredientAmount(forRow: 15),
                                 category: categories[CocktailCategory.selectedRow(inComponent: 0)]
                                 )
-        
+
             cocktailArray.append(cocktail)
             repository.saveToFile(cocktails: cocktailArray)
             resetUI()
         }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         Stepper.value = 1
@@ -79,64 +78,64 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
         CocktailCategory.dataSource = self
         CocktailCategory.delegate = self
     }
-    
-    func getCategories(){
-        cocktailController.fetchCategories(){
+
+    func getCategories() {
+        cocktailController.fetchCategories {
             (fetchedItems) in
-            if let fetchedItems = fetchedItems{
+            if let fetchedItems = fetchedItems {
                 DispatchQueue.main.async {
-                    self.categories = fetchedItems.map{ $0.name }
+                    self.categories = fetchedItems.map { $0.name }
                     self.CocktailCategory.reloadAllComponents()
                 }
             }
         }
     }
-    
+
     // MARK: - Spinner
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
          1
      }
-     
+
      func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
          categories.count
      }
-     
+
      func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
          categories[row]
      }
-     
+
     // MARK: - TableView
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             return Int(Stepper!.value)
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let cell = tableView.dequeueReusableCell(withIdentifier: "CreateIngredientCell", for: indexPath) as! SingleIngredientTableViewCell
             cell.update(withRowOfIndexPath: indexPath.row)
             return cell
     }
 
-    func fetchIngredientName(forRow row: Int) -> String{
+    func fetchIngredientName(forRow row: Int) -> String {
         let cell = IngredientsTableView.viewWithTag(row)
         guard cell != nil else {
             return ""
         }
         return (cell as! SingleIngredientTableViewCell).getIngredient()
     }
-    
-    func fetchIngredientAmount(forRow row: Int) -> String{
+
+    func fetchIngredientAmount(forRow row: Int) -> String {
         let cell = IngredientsTableView.viewWithTag(row)
         guard cell != nil else {
             return ""
         }
         return (cell as! SingleIngredientTableViewCell).getAmount()
     }
-    
+
     // MARK: - Validation
 
-    func checkInput() -> Bool{
+    func checkInput() -> Bool {
         if CocktailName.text.isEmpty || Instructions.text.isEmpty || fetchIngredientName(forRow: 1).isEmpty || fetchIngredientAmount(forRow: 1).isEmpty {
                 DispatchQueue.main.async {
 
@@ -145,13 +144,12 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
                 self.present(alert, animated: true)
             }
             return false
-        }
-        else{
+        } else {
             return true
         }
     }
-    
-    func resetUI(){
+
+    func resetUI() {
         Instructions.text = ""
         CocktailName.text = ""
         for row in 1...Int(Stepper!.value) {
@@ -162,7 +160,6 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
         IngredientsTableView.reloadData()
 
     }
-
 
     /*
     // MARK: - Navigation

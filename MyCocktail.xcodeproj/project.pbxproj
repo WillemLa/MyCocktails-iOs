@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E60316DE23B5614E003B1D26 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E60316DD23B5614E003B1D26 /* .swiftlint.yml */; };
 		E6116C19237F197200E21DD9 /* CocktailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6116C18237F197200E21DD9 /* CocktailController.swift */; };
 		E6116C1D237F31B500E21DD9 /* URLHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6116C1C237F31B500E21DD9 /* URLHelper.swift */; };
 		E6116C25239D344A00E21DD9 /* SingleIngredientTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6116C24239D344A00E21DD9 /* SingleIngredientTableViewCell.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E60316DD23B5614E003B1D26 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E6116C18237F197200E21DD9 /* CocktailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CocktailController.swift; sourceTree = "<group>"; };
 		E6116C1C237F31B500E21DD9 /* URLHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLHelper.swift; sourceTree = "<group>"; };
 		E6116C24239D344A00E21DD9 /* SingleIngredientTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleIngredientTableViewCell.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 		E6CD8312236DBD12002E61E4 = {
 			isa = PBXGroup;
 			children = (
+				E60316DD23B5614E003B1D26 /* .swiftlint.yml */,
 				E6CD831D236DBD12002E61E4 /* MyCocktail */,
 				E6CD831C236DBD12002E61E4 /* Products */,
 			);
@@ -222,6 +225,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E60316DE23B5614E003B1D26 /* .swiftlint.yml in Resources */,
 				E6CD832B236DBD18002E61E4 /* LaunchScreen.storyboard in Resources */,
 				E6CD8328236DBD18002E61E4 /* Assets.xcassets in Resources */,
 				E6CD8326236DBD12002E61E4 /* Main.storyboard in Resources */,

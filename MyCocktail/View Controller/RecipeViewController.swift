@@ -9,9 +9,9 @@
 import UIKit
 
 class RecipeViewController: UIViewController {
-    
+
     var cocktail: Cocktail?
-    
+
     @IBOutlet weak var Titel: UILabel!
     @IBOutlet weak var Instructions: UITextView!
     @IBOutlet weak var Ingredients: UITextView!
@@ -19,8 +19,8 @@ class RecipeViewController: UIViewController {
         super.viewDidLoad()
         updateUi()
     }
-    
-    func updateUi(){
+
+    func updateUi() {
         Titel.text = cocktail?.name
         Instructions.text = cocktail?.instructions
         Ingredients.text = cocktail?.getFormattedRecipe()

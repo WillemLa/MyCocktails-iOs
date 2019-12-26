@@ -8,18 +8,18 @@
 
 import Foundation
 
-struct Category : Codable {
+struct Category: Codable {
 
 let name: String
 
-enum CodingKeys: String, CodingKey{
+enum CodingKeys: String, CodingKey {
     case name = "strCategory"
 }
 
 init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
     self.name = try values.decode(String.self, forKey: CodingKeys.name)
-    
+
     }
 }
 

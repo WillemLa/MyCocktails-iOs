@@ -9,8 +9,8 @@
 import UIKit
 
 class CocktailTableViewCell: UITableViewCell {
-    
-    func update(with cocktail: Cocktail){
+
+    func update(with cocktail: Cocktail) {
         self.textLabel?.text = cocktail.name
     }
 

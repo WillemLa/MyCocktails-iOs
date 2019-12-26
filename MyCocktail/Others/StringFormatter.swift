@@ -13,5 +13,5 @@ extension String {
      func getImageNameFormatted() -> String {
         return self.replacingOccurrences(of: "/", with: "")
     }
-        
+
 }

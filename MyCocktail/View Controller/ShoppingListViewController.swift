@@ -9,14 +9,14 @@
 import UIKit
 
 class ShoppingListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
     let repository = Repository.sharedInstance()
-    var shoppingItems = Array<ShoppingItem>()
-    
+    var shoppingItems = [ShoppingItem]()
+
     @IBOutlet weak var AddButton: UIButton!
     @IBOutlet weak var ShopItemNameTextField: UITextField!
     @IBOutlet weak var ShoppingItemsTableView: UITableView!
-    
+
     @IBAction func AddShoppingItem(_ sender: Any) {
         guard checkInput() else {
             return
@@ -26,7 +26,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         loadShoppingItems()
         ShoppingItemsTableView.reloadData()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //navigationItem.rightBarButtonItem = self.editButtonItem
@@ -34,14 +34,13 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         ShoppingItemsTableView.dataSource = self
         loadShoppingItems()
     }
-    
-    
+
     // MARK: - TableView
 
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
-    
+
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             shoppingItems.remove(at: indexPath.row)
@@ -49,21 +48,21 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return shoppingItems.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingItemCell", for: indexPath) as! ShoppingItemTableViewCell
         cell.update(shoppingItem: shoppingItems[indexPath.row])
         cell.showsReorderControl = true
         return cell
     }
-    
+
     // MARK: - Validation
 
-    func checkInput() -> Bool{
+    func checkInput() -> Bool {
         if ShopItemNameTextField.text!.isEmpty {
             DispatchQueue.main.async {
                   let alert = UIAlertController(title: "Error!", message: "Please fill the required field", preferredStyle: .alert)
@@ -71,19 +70,18 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
                   self.present(alert, animated: true)
             }
                   return false
-          }
-          else{
+          } else {
               return true
           }
       }
-    
+
     // MARK: - Repository Calls
-    
-    func loadShoppingItems(){
+
+    func loadShoppingItems() {
         shoppingItems = repository.loadShoppingItemsFromFile()
     }
-    
-    func saveShoppingItems(shoppingItemArray: Array<ShoppingItem>){
+
+    func saveShoppingItems(shoppingItemArray: [ShoppingItem]) {
         repository.saveShoppingitemToFile(shoppingItems: shoppingItemArray)
     }
 

@@ -9,12 +9,11 @@
 import Foundation
 
 struct Categorie {
-    
+
     var naam: String
-    
-    init(naam: String)
-    {
+
+    init(naam: String) {
         self.naam = naam
     }
-    
+
 }

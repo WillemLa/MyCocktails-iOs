@@ -183,7 +183,7 @@
                                         <rect key="frame" x="8" y="8" width="398" height="50"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BaT-9S-srs">
-                                                <rect key="frame" x="0.0" y="0.0" width="348" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="380" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="dq7-ru-ztI"/>
                                                 </constraints>
@@ -192,11 +192,8 @@
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdC-hs-EhX">
-                                                <rect key="frame" x="348" y="0.0" width="50" height="50"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="50" id="qCT-Br-MdD"/>
-                                                </constraints>
-                                                <state key="normal" title="Button" image="plus" catalog="system"/>
+                                                <rect key="frame" x="380" y="0.0" width="18" height="50"/>
+                                                <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
                                                     <action selector="AddShoppingItem:" destination="JSi-ca-EBQ" eventType="touchUpInside" id="sSA-Yv-l1Q"/>
                                                 </connections>
@@ -426,7 +423,7 @@
                         <viewLayoutGuide key="safeArea" id="P1L-fc-A3U"/>
                     </view>
                     <navigationItem key="navigationItem" title="Personal Cocktail" id="esr-LA-WSN">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="HsR-vP-h4i">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="HsR-vP-h4i">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3Kq-l3-iCC">
                                 <rect key="frame" x="302" y="7" width="92" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
