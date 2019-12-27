@@ -16,11 +16,20 @@ struct Repository {
         return shared
     }
 
-    let cocktailArchiveUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("cocktails").appendingPathExtension("plist")
+    let cocktailArchiveUrl =
+        FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask).first!.appendingPathComponent("cocktails").appendingPathExtension("plist")
 
-    let shoppingItemArchiveUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("shoppingItem").appendingPathExtension("plist")
+    let shoppingItemArchiveUrl =
+        FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask).first!.appendingPathComponent("shoppingItem").appendingPathExtension("plist")
 
-    let categoryArchiveUrl = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("categories").appendingPathExtension("plist")
+    let categoryArchiveUrl =
+        FileManager.default.urls(
+            for: .documentDirectory,
+            in: .userDomainMask).first!.appendingPathComponent("categories").appendingPathExtension("plist")
 
     func loadShoppingItemsFromFile() -> [ShoppingItem] {
              let propertyListDecoder = PropertyListDecoder()

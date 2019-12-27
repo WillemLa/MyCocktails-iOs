@@ -10,13 +10,13 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var TextLabel: UILabel!
-    @IBOutlet weak var ImageView: UIImageView!
+    @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
 
     func update(with categorie: Category) {
         restorationIdentifier = categorie.name
 
-        TextLabel.text = categorie.name
-        ImageView.image = UIImage(named: categorie.name.getImageNameFormatted()) ?? UIImage(named: "Extra")!
+        textLabel.text = categorie.name
+        imageView.image = UIImage(named: categorie.name.getImageNameFormatted()) ?? UIImage(named: "Extra")!
     }
 }

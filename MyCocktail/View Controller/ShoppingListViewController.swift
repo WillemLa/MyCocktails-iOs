@@ -13,25 +13,25 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     let repository = Repository.sharedInstance()
     var shoppingItems = [ShoppingItem]()
 
-    @IBOutlet weak var AddButton: UIButton!
-    @IBOutlet weak var ShopItemNameTextField: UITextField!
-    @IBOutlet weak var ShoppingItemsTableView: UITableView!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var shopItemNameTextField: UITextField!
+    @IBOutlet weak var shoppingItemsTableView: UITableView!
 
-    @IBAction func AddShoppingItem(_ sender: Any) {
+    @IBAction func addShoppingItem(_ sender: Any) {
         guard checkInput() else {
             return
         }
-        shoppingItems.append(ShoppingItem(title: ShopItemNameTextField.text ?? ""))
+        shoppingItems.append(ShoppingItem(title: shopItemNameTextField.text ?? ""))
         saveShoppingItems(shoppingItemArray: shoppingItems)
         loadShoppingItems()
-        ShoppingItemsTableView.reloadData()
+        shoppingItemsTableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         //navigationItem.rightBarButtonItem = self.editButtonItem
-        ShoppingItemsTableView.delegate = self
-        ShoppingItemsTableView.dataSource = self
+        shoppingItemsTableView.delegate = self
+        shoppingItemsTableView.dataSource = self
         loadShoppingItems()
     }
 
@@ -63,7 +63,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: - Validation
 
     func checkInput() -> Bool {
-        if ShopItemNameTextField.text!.isEmpty {
+        if shopItemNameTextField.text!.isEmpty {
             DispatchQueue.main.async {
                   let alert = UIAlertController(title: "Error!", message: "Please fill the required field", preferredStyle: .alert)
                   alert.addAction(UIAlertAction(title: "Close", style: .default, handler: nil))
@@ -84,15 +84,5 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     func saveShoppingItems(shoppingItemArray: [ShoppingItem]) {
         repository.saveShoppingitemToFile(shoppingItems: shoppingItemArray)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

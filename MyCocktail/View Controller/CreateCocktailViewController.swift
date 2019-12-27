@@ -14,23 +14,23 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     let cocktailController = CocktailController.sharedInstance()
     var categories = [String]()
 
-    @IBOutlet weak var IngredientsTableView: UITableView!
+    @IBOutlet weak var ingredientsTableView: UITableView!
 
-    @IBOutlet weak var Instructions: UITextView!
-    @IBOutlet weak var CocktailCategory: UIPickerView!
-    @IBOutlet weak var CocktailName: UITextView!
-    @IBOutlet weak var Stepper: UIStepper!
-    @IBAction func StepperValueChanged(_ sender: Any) {
-            IngredientsTableView.reloadData()
+    @IBOutlet weak var instructions: UITextView!
+    @IBOutlet weak var cocktailCategory: UIPickerView!
+    @IBOutlet weak var cocktailName: UITextView!
+    @IBOutlet weak var stepper: UIStepper!
+    @IBAction func stepperValueChanged(_ sender: Any) {
+            ingredientsTableView.reloadData()
     }
 
-    @IBAction func SaveCocktail(_ sender: Any) {
+    @IBAction func saveCocktail(_ sender: Any) {
         guard checkInput() else {
             return
         }
         var cocktailArray = repository.loadFromFile()
-        let cocktail = Cocktail(name: CocktailName.text,
-                                instructions: Instructions.text,
+        let cocktail = Cocktail(name: cocktailName.text,
+                                instructions: instructions.text,
                                 ing1: fetchIngredientName(forRow: 1),
                                 ing2: fetchIngredientName(forRow: 2),
                                 ing3: fetchIngredientName(forRow: 3),
@@ -61,7 +61,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
                                 ingAmount13: fetchIngredientAmount(forRow: 13),
                                 ingAmount14: fetchIngredientAmount(forRow: 14),
                                 ingAmount15: fetchIngredientAmount(forRow: 15),
-                                category: categories[CocktailCategory.selectedRow(inComponent: 0)]
+                                category: categories[cocktailCategory.selectedRow(inComponent: 0)]
                                 )
 
             cocktailArray.append(cocktail)
@@ -71,12 +71,12 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Stepper.value = 1
+        stepper.value = 1
         getCategories()
-        IngredientsTableView.delegate = self
-        IngredientsTableView.dataSource = self
-        CocktailCategory.dataSource = self
-        CocktailCategory.delegate = self
+        ingredientsTableView.delegate = self
+        ingredientsTableView.dataSource = self
+        cocktailCategory.dataSource = self
+        cocktailCategory.delegate = self
     }
 
     func getCategories() {
@@ -85,7 +85,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
             if let fetchedItems = fetchedItems {
                 DispatchQueue.main.async {
                     self.categories = fetchedItems.map { $0.name }
-                    self.CocktailCategory.reloadAllComponents()
+                    self.cocktailCategory.reloadAllComponents()
                 }
             }
         }
@@ -108,7 +108,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - TableView
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return Int(Stepper!.value)
+            return Int(stepper!.value)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -118,7 +118,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func fetchIngredientName(forRow row: Int) -> String {
-        let cell = IngredientsTableView.viewWithTag(row)
+        let cell = ingredientsTableView.viewWithTag(row)
         guard cell != nil else {
             return ""
         }
@@ -126,7 +126,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func fetchIngredientAmount(forRow row: Int) -> String {
-        let cell = IngredientsTableView.viewWithTag(row)
+        let cell = ingredientsTableView.viewWithTag(row)
         guard cell != nil else {
             return ""
         }
@@ -136,7 +136,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     // MARK: - Validation
 
     func checkInput() -> Bool {
-        if CocktailName.text.isEmpty || Instructions.text.isEmpty || fetchIngredientName(forRow: 1).isEmpty || fetchIngredientAmount(forRow: 1).isEmpty {
+        if cocktailName.text.isEmpty || instructions.text.isEmpty || fetchIngredientName(forRow: 1).isEmpty || fetchIngredientAmount(forRow: 1).isEmpty {
                 DispatchQueue.main.async {
 
                 let alert = UIAlertController(title: "Error!", message: "Please fill all required fields", preferredStyle: .alert)
@@ -150,25 +150,15 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func resetUI() {
-        Instructions.text = ""
-        CocktailName.text = ""
-        for row in 1...Int(Stepper!.value) {
-            let cell = IngredientsTableView.viewWithTag(row)
+        instructions.text = ""
+        cocktailName.text = ""
+        for row in 1...Int(stepper!.value) {
+            let cell = ingredientsTableView.viewWithTag(row)
             (cell as! SingleIngredientTableViewCell).resetCell()
         }
-        Stepper.value = 1
-        IngredientsTableView.reloadData()
+        stepper.value = 1
+        ingredientsTableView.reloadData()
 
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

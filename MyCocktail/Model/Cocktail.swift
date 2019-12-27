@@ -133,7 +133,17 @@ struct Cocktail: Codable {
 
     }
 
-    init( name: String?, instructions: String?, ing1: String?, ing2: String?, ing3: String?, ing4: String?, ing5: String?, ing6: String?, ing7: String?, ing8: String?, ing9: String?, ing10: String?, ing11: String?, ing12: String?, ing13: String?, ing14: String?, ing15: String?, ingAmount1: String?, ingAmount2: String?, ingAmount3: String?, ingAmount4: String?, ingAmount5: String?, ingAmount6: String?, ingAmount7: String?, ingAmount8: String?, ingAmount9: String?, ingAmount10: String?, ingAmount11: String?, ingAmount12: String?, ingAmount13: String?, ingAmount14: String?, ingAmount15: String?, category: String?) {
+    init( name: String?, instructions: String?, ing1: String?,
+          ing2: String?, ing3: String?, ing4: String?, ing5: String?,
+          ing6: String?, ing7: String?, ing8: String?, ing9: String?,
+          ing10: String?, ing11: String?, ing12: String?, ing13: String?,
+          ing14: String?, ing15: String?,
+          ingAmount1: String?, ingAmount2: String?, ingAmount3: String?,
+          ingAmount4: String?, ingAmount5: String?, ingAmount6: String?,
+          ingAmount7: String?, ingAmount8: String?, ingAmount9: String?,
+          ingAmount10: String?, ingAmount11: String?, ingAmount12: String?,
+          ingAmount13: String?, ingAmount14: String?, ingAmount15: String?,
+          category: String?) {
 
         self.name = name
         self.instructions = instructions

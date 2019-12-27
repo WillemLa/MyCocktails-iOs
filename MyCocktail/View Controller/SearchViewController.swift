@@ -14,12 +14,11 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     let cocktailController = CocktailController.sharedInstance()
 
     @IBOutlet weak var categoryCollectionView: UICollectionView!
-    @IBOutlet weak var SearchBtn: UIButton!
-    @IBOutlet weak var CocktailCollectionView: UICollectionView!
-    @IBOutlet weak var SearchBar: UITextField!
+    @IBOutlet weak var searchBtn: UIButton!
+    @IBOutlet weak var cocktailCollectionView: UICollectionView!
+    @IBOutlet weak var searchBar: UITextField!
 
     // MARK: - Collection view data source
-
     var categories: [Category] = [Category]()
 
     func getCocktails(key: String, value: String, extraUrl: String, destination: CocktailTableViewController, getName: Bool) {
@@ -92,7 +91,7 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
                 let indexPath = self.categoryCollectionView.indexPath(for: sender as! UICollectionViewCell)
                 getCocktails(key: "c", value: self.categories[indexPath!.item].name, extraUrl: "filter.php", destination: destination, getName: false)
             } else {
-                getCocktails(key: "s", value: SearchBar.text ?? "", extraUrl: "search.php", destination: destination, getName: true)
+                getCocktails(key: "s", value: searchBar.text ?? "", extraUrl: "search.php", destination: destination, getName: true)
             }
         }
     }

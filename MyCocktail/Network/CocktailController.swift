@@ -29,7 +29,7 @@ class CocktailController {
                 if let data = data, let cocktails = try? jsonDecoder.decode(Cocktails.self, from: data) {
                     completion(cocktails.drinks)
                 } else {
-                    print("Geen of niet te decoderen data..1")
+                    print("Geen of niet te decoderen data..")
                     completion(nil)
                 }
             }

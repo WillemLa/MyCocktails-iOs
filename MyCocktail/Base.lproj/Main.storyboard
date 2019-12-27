@@ -80,8 +80,8 @@
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="175" height="250"/>
                                                 <connections>
-                                                    <outlet property="ImageView" destination="XMM-ps-kYd" id="TJ7-R9-pJM"/>
-                                                    <outlet property="TextLabel" destination="54k-LE-thT" id="l1a-aP-dko"/>
+                                                    <outlet property="imageView" destination="XMM-ps-kYd" id="TJ7-R9-pJM"/>
+                                                    <outlet property="textLabel" destination="54k-LE-thT" id="l1a-aP-dko"/>
                                                     <segue destination="qYU-9m-IfT" kind="show" id="iCT-bh-Bza"/>
                                                 </connections>
                                             </collectionViewCell>
@@ -104,10 +104,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Search" id="p7a-9k-LsR"/>
                     <connections>
-                        <outlet property="CocktailCollectionView" destination="sG5-OK-syE" id="Dta-LQ-bZW"/>
-                        <outlet property="SearchBar" destination="Snr-H6-OfT" id="oQC-ql-LbA"/>
-                        <outlet property="SearchBtn" destination="IMB-YO-t0U" id="1rT-fX-j3k"/>
                         <outlet property="categoryCollectionView" destination="sG5-OK-syE" id="Xl0-1q-rCZ"/>
+                        <outlet property="cocktailCollectionView" destination="sG5-OK-syE" id="Dta-LQ-bZW"/>
+                        <outlet property="searchBar" destination="Snr-H6-OfT" id="oQC-ql-LbA"/>
+                        <outlet property="searchBtn" destination="IMB-YO-t0U" id="1rT-fX-j3k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NwV-My-tRI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -195,7 +195,7 @@
                                                 <rect key="frame" x="380" y="0.0" width="18" height="50"/>
                                                 <state key="normal" image="plus" catalog="system"/>
                                                 <connections>
-                                                    <action selector="AddShoppingItem:" destination="JSi-ca-EBQ" eventType="touchUpInside" id="sSA-Yv-l1Q"/>
+                                                    <action selector="addShoppingItem:" destination="JSi-ca-EBQ" eventType="touchUpInside" id="sSA-Yv-l1Q"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -236,8 +236,8 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="ShoppingItemDate" destination="DVL-Bo-HVI" id="vJB-fa-LBp"/>
-                                                    <outlet property="ShoppingItemName" destination="p61-b0-Lsr" id="vEE-Iv-ktQ"/>
+                                                    <outlet property="shoppingItemDate" destination="DVL-Bo-HVI" id="vJB-fa-LBp"/>
+                                                    <outlet property="shoppingItemName" destination="p61-b0-Lsr" id="vEE-Iv-ktQ"/>
                                                 </connections>
                                             </tableViewCell>
                                         </prototypes>
@@ -259,9 +259,9 @@
                     <tabBarItem key="tabBarItem" title="Item" id="c5q-mg-Njd"/>
                     <navigationItem key="navigationItem" title="Shoppinglist" id="EtE-wU-cCZ"/>
                     <connections>
-                        <outlet property="AddButton" destination="ZdC-hs-EhX" id="J1x-gW-vi8"/>
-                        <outlet property="ShopItemNameTextField" destination="BaT-9S-srs" id="JyS-HQ-Ywh"/>
-                        <outlet property="ShoppingItemsTableView" destination="gVN-re-jnU" id="Sj4-0y-UaR"/>
+                        <outlet property="addButton" destination="ZdC-hs-EhX" id="J1x-gW-vi8"/>
+                        <outlet property="shopItemNameTextField" destination="BaT-9S-srs" id="JyS-HQ-Ywh"/>
+                        <outlet property="shoppingItemsTableView" destination="gVN-re-jnU" id="Sj4-0y-UaR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pn5-Gl-KB8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -298,7 +298,7 @@
                                         <rect key="frame" x="8" y="336" width="736" height="32"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <connections>
-                                            <action selector="StepperValueChanged:" destination="Dzp-fi-iLK" eventType="valueChanged" id="CgW-R4-JLm"/>
+                                            <action selector="stepperValueChanged:" destination="Dzp-fi-iLK" eventType="valueChanged" id="CgW-R4-JLm"/>
                                         </connections>
                                     </stepper>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pB7-N9-ZRA">
@@ -429,17 +429,17 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
-                                    <action selector="SaveCocktail:" destination="Dzp-fi-iLK" eventType="touchUpInside" id="F1v-Jq-WOw"/>
+                                    <action selector="saveCocktail:" destination="Dzp-fi-iLK" eventType="touchUpInside" id="F1v-Jq-WOw"/>
                                 </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="CocktailCategory" destination="K6c-iF-Rb0" id="hWj-LC-Gzv"/>
-                        <outlet property="CocktailName" destination="Jcb-OC-Uqb" id="19p-3X-AHY"/>
-                        <outlet property="IngredientsTableView" destination="zmk-Xr-M6W" id="BA1-ke-R7V"/>
-                        <outlet property="Instructions" destination="pB7-N9-ZRA" id="sjJ-6a-VFI"/>
-                        <outlet property="Stepper" destination="cr3-00-oxv" id="PdF-t8-qrc"/>
+                        <outlet property="cocktailCategory" destination="K6c-iF-Rb0" id="hWj-LC-Gzv"/>
+                        <outlet property="cocktailName" destination="Jcb-OC-Uqb" id="19p-3X-AHY"/>
+                        <outlet property="ingredientsTableView" destination="zmk-Xr-M6W" id="BA1-ke-R7V"/>
+                        <outlet property="instructions" destination="pB7-N9-ZRA" id="sjJ-6a-VFI"/>
+                        <outlet property="stepper" destination="cr3-00-oxv" id="PdF-t8-qrc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vxO-1Y-7es" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -590,9 +590,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Recipe" id="PmU-uM-GER"/>
                     <connections>
-                        <outlet property="Ingredients" destination="p3y-1f-Iif" id="66U-et-p96"/>
-                        <outlet property="Instructions" destination="aWc-tl-Ki8" id="21p-dh-LEk"/>
-                        <outlet property="Titel" destination="dfv-xR-yEQ" id="Jjs-8f-B0p"/>
+                        <outlet property="ingredients" destination="p3y-1f-Iif" id="66U-et-p96"/>
+                        <outlet property="instructions" destination="aWc-tl-Ki8" id="21p-dh-LEk"/>
+                        <outlet property="titel" destination="dfv-xR-yEQ" id="Jjs-8f-B0p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUT-7O-cFL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

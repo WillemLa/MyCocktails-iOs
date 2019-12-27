@@ -12,28 +12,19 @@ class RecipeViewController: UIViewController {
 
     var cocktail: Cocktail?
 
-    @IBOutlet weak var Titel: UILabel!
-    @IBOutlet weak var Instructions: UITextView!
-    @IBOutlet weak var Ingredients: UITextView!
+    @IBOutlet weak var titel: UILabel!
+    @IBOutlet weak var instructions: UITextView!
+    @IBOutlet weak var ingredients: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUi()
     }
 
     func updateUi() {
-        Titel.text = cocktail?.name
-        Instructions.text = cocktail?.instructions
-        Ingredients.text = cocktail?.getFormattedRecipe()
-        Ingredients.frame.size.height = Ingredients.contentSize.height
+        titel.text = cocktail?.name
+        instructions.text = cocktail?.instructions
+        ingredients.text = cocktail?.getFormattedRecipe()
+        ingredients.frame.size.height = ingredients.contentSize.height
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
