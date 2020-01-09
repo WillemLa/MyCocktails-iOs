@@ -80,8 +80,7 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     func getCategories() {
-        cocktailController.fetchCategories {
-            (fetchedItems) in
+        cocktailController.fetchCategories { (fetchedItems) in
             if let fetchedItems = fetchedItems {
                 DispatchQueue.main.async {
                     self.categories = fetchedItems.map { $0.name }

@@ -17,7 +17,4 @@ class CategoryCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    
-
 }

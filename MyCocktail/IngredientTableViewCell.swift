@@ -20,5 +20,3 @@ class IngredientTableViewCell: UITableViewCell, UITableViewDataSource, UITableVi
         return cell
     }
 }
-
- 
