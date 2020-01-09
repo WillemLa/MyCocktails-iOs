@@ -38,6 +38,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="GuT-IZ-Lbs"/>
                                         </constraints>
+                                        <variation key="heightClass=compact" hidden="YES"/>
                                     </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sG5-OK-syE">
                                         <rect key="frame" x="0.0" y="65" width="394" height="662"/>
@@ -235,6 +236,9 @@
                                                         <constraint firstItem="p61-b0-Lsr" firstAttribute="leading" secondItem="O9u-rl-yKP" secondAttribute="leadingMargin" id="rYg-Wt-qEJ"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <accessibility key="accessibilityConfiguration">
+                                                    <accessibilityTraits key="traits" notEnabled="YES"/>
+                                                </accessibility>
                                                 <connections>
                                                     <outlet property="shoppingItemDate" destination="DVL-Bo-HVI" id="vJB-fa-LBp"/>
                                                     <outlet property="shoppingItemName" destination="p61-b0-Lsr" id="vEE-Iv-ktQ"/>
