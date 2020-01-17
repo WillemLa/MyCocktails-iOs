@@ -19,26 +19,27 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var searchBar: UITextField!
 
     // MARK: - Collection view data source
+
     var categories: [Category] = [Category]()
 
-    func getCocktails(key: String, value: String, extraUrl: String, destination: CocktailTableViewController, getName: Bool) {
-        cocktailController.fetchCocktails(queryZoekTerm: [key: value], extraUrl: extraUrl) { (fetchedItems) in
+    func getCocktails(value: String, destination: CocktailTableViewController, getByName: Bool) {
+        cocktailController.fetchCocktails(getByName: getByName, queryZoekTerm: value) { (fetchedItems) in
             if let fetchedItems = fetchedItems {
                 DispatchQueue.main.async {
-                    destination.cocktails = fetchedItems + self.getCocktailsFromDb(keyword: value, getName: getName)
+                    destination.cocktails = fetchedItems + self.getCocktailsFromDb(keyword: value, getByName: getByName)
                     destination.tableView.reloadData()
                 }
             } else {
                 DispatchQueue.main.async {
-                destination.cocktails = self.getCocktailsFromDb(keyword: value, getName: getName)
+                destination.cocktails = self.getCocktailsFromDb(keyword: value, getByName: getByName)
                 destination.tableView.reloadData()
             }
             }
         }
     }
 
-    func getCocktailsFromDb(keyword: String, getName: Bool) -> [Cocktail] {
-        if getName {
+    func getCocktailsFromDb(keyword: String, getByName: Bool) -> [Cocktail] {
+        if getByName {
             return repository.getCocktailsByName(name: keyword)
         } else {
             return repository.getCocktailsByCategory(category: keyword)
@@ -88,9 +89,9 @@ class SearchViewController: UIViewController, UICollectionViewDataSource, UIColl
         if let destination = segue.destination as? CocktailTableViewController {
             if sender is UICollectionViewCell {
                 let indexPath = self.categoryCollectionView.indexPath(for: sender as! UICollectionViewCell)
-                getCocktails(key: "c", value: self.categories[indexPath!.item].name, extraUrl: "filter.php", destination: destination, getName: false)
+                getCocktails(value: self.categories[indexPath!.item].name, destination: destination, getByName: false)
             } else {
-                getCocktails(key: "s", value: searchBar.text ?? "", extraUrl: "search.php", destination: destination, getName: true)
+                getCocktails(value: searchBar.text ?? "", destination: destination, getByName: true)
             }
         }
     }

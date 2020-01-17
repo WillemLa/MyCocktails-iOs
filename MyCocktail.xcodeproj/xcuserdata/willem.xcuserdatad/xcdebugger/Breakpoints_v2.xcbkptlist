@@ -772,8 +772,8 @@
             filePath = "MyCocktail/View Controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "SearchViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -804,9 +804,9 @@
             filePath = "MyCocktail/View Controller/SearchViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "getCocktailsFromDb(keyword:getName:)"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getCocktailsFromDb(keyword:getByName:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

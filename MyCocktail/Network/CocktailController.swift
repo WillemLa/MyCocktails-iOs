@@ -18,13 +18,12 @@ class CocktailController {
 
     let baseUrl = URL(string: "https://www.thecocktaildb.com/api/json/v1/1/")!
 
-    func fetchCocktails(queryZoekTerm: [String: String], extraUrl: String, completion: @escaping ([Cocktail]?) -> Void) {
-        let url = baseUrl.appendingPathComponent(extraUrl)
-        let urlWithQuery = url.withQueries(queryZoekTerm)!
+    func fetchCocktails(getByName: Bool, queryZoekTerm: String, completion: @escaping ([Cocktail]?) -> Void) {
 
         let jsonDecoder = JSONDecoder()
-        if extraUrl == "search.php" {
-            //zoeken op naam
+        if  getByName {
+            let url = baseUrl.appendingPathComponent("search.php")
+            let urlWithQuery = url.withQueries(["s":queryZoekTerm])!
             let task = URLSession.shared.dataTask(with: urlWithQuery) { (data, _, _) in
                 if let data = data, let cocktails = try? jsonDecoder.decode(Cocktails.self, from: data) {
                     completion(cocktails.drinks)
@@ -34,8 +33,9 @@ class CocktailController {
                 }
             }
             task.resume()
-            //einde zoeken op naam
         } else {
+            let url = baseUrl.appendingPathComponent("filter.php")
+            let urlWithQuery = url.withQueries(["c":queryZoekTerm])!
             var cocktailResult: [Cocktail] = []
             let task = URLSession.shared.dataTask(with: urlWithQuery) { (data, _, _) in
                 if let data = data, let cocktailsIds = try? jsonDecoder.decode(CocktailsByCat.self, from: data) {
@@ -48,7 +48,7 @@ class CocktailController {
                         }
                     }
                 } else {
-                    print("Geen of niet te decoderen data..2")
+                    print("Geen of niet te decoderen data..")
                     completion(nil)
                 }
             }
