@@ -21,10 +21,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         guard checkInput() else {
             return
         }
-        shoppingItems.append(ShoppingItem(title: shopItemNameTextField.text ?? ""))
-        saveShoppingItems(shoppingItemArray: shoppingItems)
-        loadShoppingItems()
-        shoppingItemsTableView.reloadData()
+        addShoppingItemToTable()
     }
 
     override func viewDidLoad() {
@@ -58,6 +55,13 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         cell.update(shoppingItem: shoppingItems[indexPath.row])
         cell.showsReorderControl = true
         return cell
+    }
+    
+    func addShoppingItemToTable(){
+        shoppingItems.append(ShoppingItem(title: shopItemNameTextField.text ?? ""))
+        saveShoppingItems(shoppingItemArray: shoppingItems)
+        loadShoppingItems()
+        shoppingItemsTableView.reloadData()
     }
 
     // MARK: - Validation
