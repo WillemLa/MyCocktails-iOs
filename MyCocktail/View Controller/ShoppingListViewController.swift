@@ -80,7 +80,7 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
     // MARK: - Repository Calls
 
     func loadShoppingItems() {
-        shoppingItems = repository.loadShoppingItemsFromFile()
+       shoppingItems = repository.loadShoppingItemsFromFile()
     }
 
     func saveShoppingItems(shoppingItemArray: [ShoppingItem]) {

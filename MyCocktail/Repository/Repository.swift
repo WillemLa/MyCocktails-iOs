@@ -56,7 +56,6 @@ struct Repository {
     }
 
     func saveToFile(cocktail: Cocktail) {
-        
         var cocktailArray = loadFromFile()
         cocktailArray.append(cocktail)
 
