@@ -55,9 +55,13 @@ struct Repository {
           return [Cocktail]()
     }
 
-    func saveToFile(cocktails: [Cocktail]) {
+    func saveToFile(cocktail: Cocktail) {
+        
+        var cocktailArray = loadFromFile()
+        cocktailArray.append(cocktail)
+
         let properyListEncoder = PropertyListEncoder()
-                       let encodedCocktail = try? properyListEncoder.encode(cocktails)
+                       let encodedCocktail = try? properyListEncoder.encode(cocktailArray)
                               try? encodedCocktail?.write(to: cocktailArchiveUrl, options: .noFileProtection)
     }
 

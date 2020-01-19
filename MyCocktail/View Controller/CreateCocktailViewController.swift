@@ -25,49 +25,45 @@ class CreateCocktailViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     @IBAction func saveCocktail(_ sender: Any) {
-        guard checkInput() else {
-            return
-        }
-        var cocktailArray = repository.loadFromFile()
-        let cocktail = Cocktail(name: cocktailName.text,
-                                instructions: instructions.text,
-                                ing1: fetchIngredientName(forRow: 1),
-                                ing2: fetchIngredientName(forRow: 2),
-                                ing3: fetchIngredientName(forRow: 3),
-                                ing4: fetchIngredientName(forRow: 4),
-                                ing5: fetchIngredientName(forRow: 5),
-                                ing6: fetchIngredientName(forRow: 6),
-                                ing7: fetchIngredientName(forRow: 7),
-                                ing8: fetchIngredientName(forRow: 8),
-                                ing9: fetchIngredientName(forRow: 9),
-                                ing10: fetchIngredientName(forRow: 10),
-                                ing11: fetchIngredientName(forRow: 11),
-                                ing12: fetchIngredientName(forRow: 12),
-                                ing13: fetchIngredientName(forRow: 13),
-                                ing14: fetchIngredientName(forRow: 14),
-                                ing15: fetchIngredientName(forRow: 15),
-                                ingAmount1: fetchIngredientAmount(forRow: 1),
-                                ingAmount2: fetchIngredientAmount(forRow: 2),
-                                ingAmount3: fetchIngredientAmount(forRow: 3),
-                                ingAmount4: fetchIngredientAmount(forRow: 4),
-                                ingAmount5: fetchIngredientAmount(forRow: 5),
-                                ingAmount6: fetchIngredientAmount(forRow: 6),
-                                ingAmount7: fetchIngredientAmount(forRow: 7),
-                                ingAmount8: fetchIngredientAmount(forRow: 8),
-                                ingAmount9: fetchIngredientAmount(forRow: 9),
-                                ingAmount10: fetchIngredientAmount(forRow: 10),
-                                ingAmount11: fetchIngredientAmount(forRow: 11),
-                                ingAmount12: fetchIngredientAmount(forRow: 12),
-                                ingAmount13: fetchIngredientAmount(forRow: 13),
-                                ingAmount14: fetchIngredientAmount(forRow: 14),
-                                ingAmount15: fetchIngredientAmount(forRow: 15),
-                                category: categories[cocktailCategory.selectedRow(inComponent: 0)]
-                                )
-
-            cocktailArray.append(cocktail)
-            repository.saveToFile(cocktails: cocktailArray)
-            resetUI()
-        }
+    guard checkInput() else {
+        return
+    }
+    repository.saveToFile(cocktail: Cocktail(name: cocktailName.text,
+                            instructions: instructions.text,
+                            ing1: fetchIngredientName(forRow: 1),
+                            ing2: fetchIngredientName(forRow: 2),
+                            ing3: fetchIngredientName(forRow: 3),
+                            ing4: fetchIngredientName(forRow: 4),
+                            ing5: fetchIngredientName(forRow: 5),
+                            ing6: fetchIngredientName(forRow: 6),
+                            ing7: fetchIngredientName(forRow: 7),
+                            ing8: fetchIngredientName(forRow: 8),
+                            ing9: fetchIngredientName(forRow: 9),
+                            ing10: fetchIngredientName(forRow: 10),
+                            ing11: fetchIngredientName(forRow: 11),
+                            ing12: fetchIngredientName(forRow: 12),
+                            ing13: fetchIngredientName(forRow: 13),
+                            ing14: fetchIngredientName(forRow: 14),
+                            ing15: fetchIngredientName(forRow: 15),
+                            ingAmount1: fetchIngredientAmount(forRow: 1),
+                            ingAmount2: fetchIngredientAmount(forRow: 2),
+                            ingAmount3: fetchIngredientAmount(forRow: 3),
+                            ingAmount4: fetchIngredientAmount(forRow: 4),
+                            ingAmount5: fetchIngredientAmount(forRow: 5),
+                            ingAmount6: fetchIngredientAmount(forRow: 6),
+                            ingAmount7: fetchIngredientAmount(forRow: 7),
+                            ingAmount8: fetchIngredientAmount(forRow: 8),
+                            ingAmount9: fetchIngredientAmount(forRow: 9),
+                            ingAmount10: fetchIngredientAmount(forRow: 10),
+                            ingAmount11: fetchIngredientAmount(forRow: 11),
+                            ingAmount12: fetchIngredientAmount(forRow: 12),
+                            ingAmount13: fetchIngredientAmount(forRow: 13),
+                            ingAmount14: fetchIngredientAmount(forRow: 14),
+                            ingAmount15: fetchIngredientAmount(forRow: 15),
+                            category: categories[cocktailCategory.selectedRow(inComponent: 0)]
+        ))
+        resetUI()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
