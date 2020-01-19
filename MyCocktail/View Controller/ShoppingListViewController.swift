@@ -26,7 +26,6 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //navigationItem.rightBarButtonItem = self.editButtonItem
         shoppingItemsTableView.delegate = self
         shoppingItemsTableView.dataSource = self
         loadShoppingItems()
@@ -57,10 +56,9 @@ class ShoppingListViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
-    func addShoppingItemToTable(){
+    func addShoppingItemToTable() {
         shoppingItems.append(ShoppingItem(title: shopItemNameTextField.text ?? ""))
         saveShoppingItems(shoppingItemArray: shoppingItems)
-        loadShoppingItems()
         shoppingItemsTableView.reloadData()
     }
 
